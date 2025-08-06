@@ -1,0 +1,32 @@
+// Пакет, к которому принадлежит класс
+package com.java.task.pro.task16.task1617;
+
+// Импорты необходимых классов из Java Time API
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+/*
+Временная глобализация
+Задача: преобразовать локальное время в зональное с учетом временной зоны "Zulu" (UTC)
+*/
+
+public class Solution {
+
+    // Статическое поле, хранящее локальную дату и время (без информации о временной зоне)
+    static LocalDateTime localDateTime = LocalDateTime.of(2020, 3, 19, 9, 17);
+    
+    // Статическое поле, хранящее идентификатор временной зоны "Zulu" (UTC)
+    static ZoneId zoneId = ZoneId.of("Zulu");
+    
+    // Статическое поле для хранения результата - даты и времени с учетом временной зоны
+    static ZonedDateTime globalTime;
+
+    public static void main(String[] args) {
+        // Преобразуем локальное время в зональное, добавляя информацию о временной зоне
+        globalTime = localDateTime.atZone(zoneId);
+        
+        // Выводим результат преобразования
+        System.out.println(globalTime);
+    }
+}
